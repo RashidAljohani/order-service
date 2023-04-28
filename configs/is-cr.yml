@@ -27,8 +27,6 @@ spec:
     endpointType: http
   version: '12.0.7'
   replicas: 1
-  barURL:
-
-    - 'https://github.com/ot4i/ace-docker/raw/main/samples/bars/CustomerDatabaseV1.bar'
+  barURL: 'https://github.com/ot4i/ace-docker/raw/main/samples/bars/CustomerDatabaseV1.bar'
   configurations:
     - github-auth
