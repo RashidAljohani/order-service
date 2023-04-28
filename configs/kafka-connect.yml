@@ -22,10 +22,12 @@ spec:
       imagePullSecrets: []
       metadata:
         annotations:
-          productVersion: 11.1.5
+          productVersion: 11.1.6
           cloudpakName: IBM Cloud Pak for Integration
           productChargedContainers: my-connect-cluster-connect
           productCloudpakRatio: '2:1'
           productName: IBM Event Streams for Non Production
           eventstreams.production.type: CloudPakForIntegrationNonProduction
           productMetric: VIRTUAL_PROCESSOR_CORE
+          productID: 2a79e49111f44ec3acd89608e56138f5
+          cloudpakId: c8b82d189e7545f0892db9ef2731b90d
