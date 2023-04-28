@@ -1,0 +1,11 @@
+apiVersion: appconnect.ibm.com/v1beta1
+kind: Configuration
+metadata:
+  labels:
+    bcdr-candidate: t
+    component-name: appconnect
+  name: github-auth
+spec:
+  secretName: github-auth-s6fhq
+  type: barauth
+  version: 12.0.7.0-r5

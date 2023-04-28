@@ -1,0 +1,34 @@
+apiVersion: appconnect.ibm.com/v1beta1
+kind: IntegrationServer
+metadata:
+  name: new-orders-is
+spec:
+  enableMetrics: true
+  license:
+    accept: true
+    license: L-MSST-58UM6D
+    use: AppConnectEnterpriseNonProductionFREE
+  pod:
+    containers:
+      runtime:
+        resources:
+          limits:
+            cpu: 300m
+            memory: 368Mi
+          requests:
+            cpu: 100m
+            memory: 368Mi
+  adminServerSecure: true
+  router:
+    timeout: 120s
+  designerFlowsOperationMode: disabled
+  createDashboardUsers: true
+  service:
+    endpointType: http
+  version: '12.0.7'
+  replicas: 1
+  barURL:
+
+    - 'https://github.com/ot4i/ace-docker/raw/main/samples/bars/CustomerDatabaseV1.bar'
+  configurations:
+    - github-auth

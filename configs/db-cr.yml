@@ -1,0 +1,31 @@
+apiVersion: appconnect.ibm.com/v1beta1
+kind: Dashboard
+metadata:
+  name: db-cr
+  namespace: demo-01
+spec:
+  license:
+    accept: true
+    license: L-MSST-58UM6D
+    use: AppConnectEnterpriseNonProductionFREE
+  pod:
+    containers:
+      content-server:
+        resources:
+          limits:
+            memory: 512Mi
+          requests:
+            cpu: 50m
+            memory: 50Mi
+      control-ui:
+        resources:
+          limits:
+            memory: 512Mi
+          requests:
+            cpu: 50m
+            memory: 125Mi
+  storage:
+    type: ephemeral
+  replicas: 1
+  useCommonServices: false
+  version: '12.0.7'

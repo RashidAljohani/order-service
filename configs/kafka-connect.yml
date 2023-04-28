@@ -1,0 +1,31 @@
+apiVersion: eventstreams.ibm.com/v1beta2
+kind: KafkaConnect
+metadata:
+  annotations:
+    eventstreams.ibm.com/use-connector-resources: 'true'
+    argocd.argoproj.io/sync-wave: "2"
+  name: my-connect-cluster
+spec:
+  bootstrapServers: 'es-light-kafka-bootstrap.demo-01.svc:9092'
+  config:
+    config.storage.replication.factor: 1
+    config.storage.topic: connect-cluster-configs
+    group.id: connect-cluster
+    offset.storage.replication.factor: 1
+    offset.storage.topic: connect-cluster-offsets
+    status.storage.replication.factor: 1
+    status.storage.topic: connect-cluster-status
+  image: 'quay.io/rashid_aljohani/my-connect-cluster:1.0'
+  replicas: 1
+  template:
+    pod:
+      imagePullSecrets: []
+      metadata:
+        annotations:
+          productVersion: 11.1.5
+          cloudpakName: IBM Cloud Pak for Integration
+          productChargedContainers: my-connect-cluster-connect
+          productCloudpakRatio: '2:1'
+          productName: IBM Event Streams for Non Production
+          eventstreams.production.type: CloudPakForIntegrationNonProduction
+          productMetric: VIRTUAL_PROCESSOR_CORE
